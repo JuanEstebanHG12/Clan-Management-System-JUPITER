@@ -1,1 +1,1 @@
-# Clan-Management-System-JUPITER
+# JUPITER
