@@ -1,3 +1,8 @@
+import views.LoginView;
+import views.CoderView;
+import views.TLView;
+import views.AdminView;
+
 public class Main {
     public static void main(String[] args) {
         LoginView loginView = new LoginView();
