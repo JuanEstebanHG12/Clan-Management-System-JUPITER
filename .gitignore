@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!app/com/jupiter/src/main/**/target/
+!app/com/jupiter/src/test/**/target/
 .kotlin
 
 ### IntelliJ IDEA ###
@@ -26,8 +26,8 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+!app/com/jupiter/src/main/**/build/
+!app/com/jupiter/src/test/**/build/
 
 ### VS Code ###
 .vscode/
