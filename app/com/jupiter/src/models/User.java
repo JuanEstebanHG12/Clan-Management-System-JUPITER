@@ -1,7 +1,7 @@
 //Place where you create the class of User.
 package models;
 
-import enums.Role;
+import models.enums.Role;
 
 //Place where you create the class of User.
 public class User {
