@@ -1,13 +1,13 @@
 package models;
 
+
 import models.enums.Clan;
 import models.enums.Role;
 
-//Place where you create the class of Tl.
-public class Tl extends User {
+public class Coder extends User {
     private final Clan clan;
 
-    public Tl(String username, String password, Role role, Clan clan) {
+    public Coder(String username, String password, Role role, Clan clan) {
         super(username, password, role);
         this.clan = clan;
     }
