@@ -7,8 +7,8 @@ import models.enums.Role;
 public class Tl extends User {
     private final Clan clan;
 
-    public Tl(String username, String password, Role role, Clan clan) {
-        super(username, password, role);
+    public Tl(String username,String email, String password, Role role, Clan clan) {
+        super(username, email , password, role);
         this.clan = clan;
     }
 
