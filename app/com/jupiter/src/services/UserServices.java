@@ -8,7 +8,6 @@ public class UserServices {
         User user = UserRepository.findByEmail(email);
 
         if (user != null && user.getPassword().trim().equals(password)){
-            System.out.println(user);
             return user;
         }
         return null;

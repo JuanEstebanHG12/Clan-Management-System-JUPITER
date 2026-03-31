@@ -1,5 +1,6 @@
 package repository;
 
+import models.Admin;
 import models.Coder;
 import models.User;
 import models.enums.Clan;
@@ -34,6 +35,7 @@ public class UserRepository {
                             System.out.println("Error: This clan doesn't exist");
                         }
                     }
+                    return new Admin(data[0], data[1], data[2], role);
                 }
             }
         } catch (IOException e) {

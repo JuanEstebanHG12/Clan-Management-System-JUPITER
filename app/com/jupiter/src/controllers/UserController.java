@@ -21,7 +21,7 @@ public class UserController {
 
         // 3. DECIDIR QUÉ MOSTRAR
         if (loggedUser != null) {
-            System.out.println("\n Access Successfully.");
+            System.out.println("\n Access Successfully." + loggedUser);
         } else {
             System.out.println("\n Error: Access Deny.");
         }
