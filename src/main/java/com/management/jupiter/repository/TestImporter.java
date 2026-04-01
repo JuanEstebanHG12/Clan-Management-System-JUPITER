@@ -3,43 +3,38 @@ package com.management.jupiter.repository;
 public class TestImporter {
 
     public static void main(String[] args) {
+
+        AdminRepository repo = new AdminRepository();
+
         System.out.println("========================================");
         System.out.println("   INICIANDO TEST DE REPOSITORIO       ");
         System.out.println("========================================\n");
 
-        try {
-            // Instanciamos repositorio
-            AdminRepository repo = new AdminRepository();
+        // 🔥 1. Quemar datos (vaciar archivo)
+        System.out.println("Limpiando archivo...");
+        repo.insertUser("RESET", "reset@system.com", "000", "   temp");
+        repo.deleteUser("reset@system.com");
 
-            // CREATE (datos quemados)
-            System.out.println("Insertando usuario de prueba...\n");
+        // 👤 2. Insertar usuarios
+        System.out.println("\nInsertando usuarios...");
 
-            repo.insertUser(
-                    "Carlos Perez",
-                    "carlos@test.com",
-                    "123456",
-                    "ADMIN"
-            );
+        repo.insertUser("Juan Admin", "admin@test.com", "1234", "admin");
+        repo.insertUser("Pedro Coder", "coder@test.com", "5678", "coder");
 
-            //  READ para validar
-            System.out.println("Usuarios actuales:\n");
-            repo.getAllUsers();
-            //Testeo de DELETE
-            System.out.println("testeo de DELETE");
-            repo.deleteUser("carlos@test.com");
+        // 📋 3. Mostrar usuarios
+        System.out.println("\nUsuarios actuales:");
+        repo.getAllUsers();
 
-            //  READ para validar eliminacion
-            System.out.println("Usuarios actuales:\n");
-            repo.getAllUsers();
+        // ❌ 4. Eliminar uno
+        System.out.println("\nEliminando usuario coder...");
+        repo.deleteUser("coder@test.com");
 
-            System.out.println("\n========================================");
-            System.out.println("   TEST FINALIZADO CON ÉXITO           ");
-            System.out.println("========================================");
+        // 📋 5. Mostrar resultado final
+        System.out.println("\nUsuarios después de eliminar:");
+        repo.getAllUsers();
 
-        } catch (Exception e) {
-            System.out.println("\n[ERROR EN EL TEST]:");
-            e.printStackTrace();
-        }
+        System.out.println("\n========================================");
+        System.out.println("   TEST FINALIZADO CON ÉXITO           ");
+        System.out.println("========================================");
     }
 }
-
