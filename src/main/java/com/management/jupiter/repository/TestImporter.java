@@ -6,17 +6,13 @@ public class TestImporter {
 
         AdminRepository repo = new AdminRepository();
 
+
         System.out.println("========================================");
         System.out.println("   INICIANDO TEST DE REPOSITORIO       ");
         System.out.println("========================================\n");
 
-        // 🔥 1. Quemar datos (vaciar archivo)
-        System.out.println("Limpiando archivo...");
-        repo.insertUser("RESET", "reset@system.com", "000", "   temp");
-        repo.deleteUser("reset@system.com");
-
-        // 👤 2. Insertar usuarios
-        System.out.println("\nInsertando usuarios...");
+       //Testeo clan
+        repo.insertClan(1, "Warriors", "Angela", "");
 
         repo.insertUser("Juan Admin", "admin@test.com", "1234", "admin");
         repo.insertUser("Pedro Coder", "coder@test.com", "5678", "coder");
@@ -25,7 +21,7 @@ public class TestImporter {
         System.out.println("\nUsuarios actuales:");
         repo.getAllUsers();
 
-        // ❌ 4. Eliminar uno
+        // 4. Eliminar uno
         System.out.println("\nEliminando usuario coder...");
         repo.deleteUser("coder@test.com");
 

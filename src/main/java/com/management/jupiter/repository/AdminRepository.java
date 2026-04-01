@@ -21,6 +21,7 @@ public class AdminRepository {
     }
 
     public void insertUser(String name, String email, String password, String role){
+        //Lee existentes
         List<String[]> users = handler.read("info.csv");
 
         String[] newUser = new String[]{name, email, password, role};
@@ -36,9 +37,19 @@ public class AdminRepository {
         boolean removed = users.removeIf(user -> user[1].equalsIgnoreCase(email));
         if (removed){
             handler.write("info.csv", users);
-            System.out.println("El usuario eliminado fue: " + email);
+            System.out.println("User delete is: " + email);
         } else {
-            System.out.println("Ese usuario no existe");
+            System.out.println("User not exist.");
         }
     }
+    //Create clan
+    public void insertClan(int id, String clanName,String teamLeader, String members){
+        List<String[]> clans = handler.read("clans.csv");
+
+        String[] newClan = new String[]{(String.valueOf(id)) , clanName,teamLeader, members}; //Con el valueOf convertimos a String.
+
+        clans.add(newClan);
+
+        handler.write("clans.csv", clans);
+}
 }
