@@ -1,22 +1,20 @@
 //Place where you create the class of User.
-package com.management.jupiter.models;
+package models;
 
-import models.enums.Role;
+import enums.Role;
 
 //Place where you create the class of User.
 public class User {
     private static int counter = 1;
 
-    private final int id;
-    private final String username;
-    private final String email;
-    private final String password;
-    private final Role role;
+    private int id;
+    private String username;
+    private String password;
+    private Role role;
 
-    public User(String username, String email, String password, Role role) {
+    public User(String username, String password, Role role) {
         this.id = counter++;
         this.username = username;
-        this.email = email;
         this.password = password;
         this.role = role;
     }
