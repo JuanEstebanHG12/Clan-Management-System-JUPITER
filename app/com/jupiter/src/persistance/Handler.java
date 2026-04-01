@@ -1,15 +1,12 @@
-package com.jupiter.src.persistance;
+package persistance;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Handler {
 
-    private String basePath;
+    private final String basePath;
 
     public Handler(String basePath) {
         this.basePath = basePath;
@@ -29,7 +26,18 @@ public class Handler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return dataList;
     }
+    public void write(String fileName, List<String[]> data) {
+        String fullPath = basePath + File.separator + fileName;
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fullPath))) {
+            for (String[] row : data) {
+                bw.write(String.join(",", row));
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       }
 }

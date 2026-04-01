@@ -1,4 +1,4 @@
-package com.jupiter.src.repository; // Verifica que este sea tu package real
+package repository;
 
 public class TestImporter {
 
@@ -8,10 +8,21 @@ public class TestImporter {
         System.out.println("========================================\n");
 
         try {
-            //instanciamos el constructor
+            // Instanciamos repositorio
             AdminRepository repo = new AdminRepository();
 
+            // CREATE (datos quemados)
+            System.out.println("Insertando usuario de prueba...\n");
 
+            repo.insertUser(
+                    "Carlos Perez",
+                    "carlos@test.com",
+                    "123456",
+                    "ADMIN"
+            );
+
+            // 🔍 READ para validar
+            System.out.println("Usuarios actuales:\n");
             repo.getAllUsers();
 
             System.out.println("\n========================================");
@@ -21,8 +32,6 @@ public class TestImporter {
         } catch (Exception e) {
             System.out.println("\n[ERROR EN EL TEST]:");
             e.printStackTrace();
-            // Si sale un error aquí, lee la consola,
-            // probablemente dirá "File Not Found" si la ruta del CSV está mal.
         }
     }
 }
