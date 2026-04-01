@@ -33,5 +33,18 @@ public class AdminRepository {
         //Lo añadimos al archivo para la persistencia
         handler.write("info.csv", users);
     }
+    public void deleteUser(String email){
+        //Leemos todos los usuarios.
+        List<String[]> users = handler.read("info.csv");
 
+        //Filtramos los que no coincidan con el email para eliminar
+        boolean removed = users.removeIf(user -> user[1].equalsIgnoreCase(email));
+        if (removed){
+            //Reescribo el CSV sin el usuario eliminado.
+            handler.write("info.csv", users);
+            System.out.println("El usuario eliminado fue: " + email);
+        }else {
+            System.out.println("Ese usuario no existe");
+        }
     }
+}

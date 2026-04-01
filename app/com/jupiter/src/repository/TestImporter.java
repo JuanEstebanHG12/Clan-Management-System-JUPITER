@@ -21,7 +21,14 @@ public class TestImporter {
                     "ADMIN"
             );
 
-            // 🔍 READ para validar
+            //  READ para validar
+            System.out.println("Usuarios actuales:\n");
+            repo.getAllUsers();
+            //Testeo de DELETE
+            System.out.println("testeo de DELETE");
+            repo.deleteUser("carlos@test.com");
+
+            //  READ para validar eliminacion
             System.out.println("Usuarios actuales:\n");
             repo.getAllUsers();
 
@@ -35,3 +42,4 @@ public class TestImporter {
         }
     }
 }
+
