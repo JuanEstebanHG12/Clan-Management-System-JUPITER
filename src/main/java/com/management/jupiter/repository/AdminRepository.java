@@ -52,4 +52,15 @@ public class AdminRepository {
 
         handler.write("clans.csv", clans);
 }
+public void deleteCLan(String name){
+        List<String[]> clans = handler.read("clans.csv");
+
+        boolean removed = clans.removeIf(clan -> clan[1].equalsIgnoreCase(name));
+        if (removed){
+            handler.write("clans.csv", clans);
+            System.out.println("Clan deleted is: " + name);
+        } else {
+            System.out.println("Clan not exist.");
+        }
+    }
 }
